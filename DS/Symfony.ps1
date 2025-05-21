@@ -53,7 +53,9 @@ Write-Host "  - Style d'authentification : 1 (login form authenticator)"
 Write-Host "  - Nom de la classe authenticator : laisse par défaut (AppCustomAuthenticator) ou choisis un nom"
 Write-Host "  - Nom du contrôleur : laisse par défaut (SecurityController) ou choisis un nom"
 Write-Host "Appuie sur Entrée et réponds aux questions dans la console..."
-symfony console make:security
+symfony console make:security:form-login
+
+
 
 # 8. Création du contrôleur DashboardController
 Write-Host "`n[Étape 8] Création du contrôleur DashboardController..."
@@ -78,9 +80,8 @@ Write-Host "`n[Étape 11] Génération et exécution de la migration pour le cha
 symfony console make:migration
 symfony console doctrine:migrations:migrate
 
-# ... Toutes les étapes précédentes inchangées (1 à 11)
-
 # 12. Création des entités métier avec instructions détaillées
+
 # Création de l'entité Note (sans relation)
 Write-Host "`nCréation de l'entité Note (sans relation)"
 Write-Host "👉 Réponds :"
@@ -117,50 +118,18 @@ symfony console make:entity VieNote
 # Ajouter relations à Note
 Write-Host "`nAjout des relations à Note"
 Write-Host "👉 Réponds :"
-Write-Host "  - Nom du champ : user"
-Write-Host "  - Type : relation"
-Write-Host "  - Relation : ManyToOne"
-Write-Host "  - Cible : User"
-Write-Host "  - InversedBy : notes"
-Write-Host "  - Facultatif : non"
-Write-Host "---"
-Write-Host "  - etat : ManyToOne vers Etat (inversedBy: notes)"
-Write-Host "---"
-Write-Host "  - tags : ManyToMany vers Tag (inversedBy: notes)"
+Write-Host "  - user : ManyToOne vers User "
+Write-Host "  - etat : ManyToOne vers Etat "
+Write-Host "  - tags : ManyToMany vers Tag "
 Read-Host "Appuie sur Entrée pour modifier Note"
 symfony console make:entity Note
-
-# Ajouter relation à Tag (ManyToMany vers Note)
-Write-Host "`nAjout des relations à Tag"
-Write-Host "👉 Réponds :"
-Write-Host "  - notes : ManyToMany vers Note"
-Write-Host "  - InversedBy : tags"
-Read-Host "Appuie sur Entrée pour modifier Tag"
-symfony console make:entity Tag
-
-# Ajouter relation à Etat (OneToMany vers Note)
-Write-Host "`nAjout de la relation à Etat"
-Write-Host "👉 Réponds :"
-Write-Host "  - notes : OneToMany vers Note"
-Write-Host "  - MappedBy : etat"
-Read-Host "Appuie sur Entrée pour modifier Etat"
-symfony console make:entity Etat
 
 # Ajouter relation à VieNote (ManyToOne vers User)
 Write-Host "`nAjout de la relation à VieNote"
 Write-Host "👉 Réponds :"
-Write-Host "  - user : ManyToOne vers User"
-Write-Host "  - InversedBy : vieNotes"
+Write-Host "  - user : ManyToOne vers User "
 Read-Host "Appuie sur Entrée pour modifier VieNote"
 symfony console make:entity VieNote
-
-# Ajouter les relations inversées dans User
-Write-Host "`nAjout des relations à User"
-Write-Host "👉 Réponds :"
-Write-Host "  - notes : OneToMany vers Note (mappedBy: user)"
-Write-Host "  - vieNotes : OneToMany vers VieNote (mappedBy: user)"
-Read-Host "Appuie sur Entrée pour modifier User"
-symfony console make:entity User
 
 
 # 13. Génération et exécution de la migration finale
@@ -187,7 +156,6 @@ symfony console make:crud Etat
 # CRUD pour VieNote
 Write-Host "`n➡️ Génération du CRUD pour l'entité VieNote..."
 symfony console make:crud VieNote
-
 
 
 Write-Host "`n✅ Projet Symfony prêt !"

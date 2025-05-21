@@ -71,6 +71,7 @@
                 <li class="nav-item"><a class="nav-link" href="/tag">Tags</a></li>
                 <li class="nav-item"><a class="nav-link" href="/etat">États</a></li>
                 <li class="nav-item"><a class="nav-link" href="/vie/note">VieNote</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path('app_login') }}">Login</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ path('app_register') }}">Register</a></li>
             </ul>
         </div>
