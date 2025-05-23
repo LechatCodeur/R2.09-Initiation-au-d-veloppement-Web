@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier utilisateur{% endblock %}
+
+{% block body %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <h1 class="mb-4 text-dark">Modifier l'utilisateur</h1>
+
+            <div class="card shadow-sm border-0">
+                <div class="card-body bg-light text-dark">
+                    {{ include('user/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+                </div>
+            </div>
+
+            <div class="mt-4 d-flex flex-wrap gap-2 align-items-center">
+                <a href="{{ path('app_user_index') }}"
+                   class="btn btn-sm btn-secondary d-inline-flex align-items-center"
+                   style="padding: 0.3rem 0.75rem; font-size: 0.875rem;">
+                    <i class="bi bi-arrow-left-circle me-1"></i> Retour à la liste
+                </a>
+
+                <a href="#"
+                   onclick="event.preventDefault(); if (confirm('Confirmer la suppression ?')) { document.getElementById('delete-user-form').submit(); }"
+                   class="btn btn-sm btn-danger d-inline-flex align-items-center"
+                   style="padding: 0.3rem 0.75rem; font-size: 0.875rem;">
+                    <i class="bi bi-trash me-1"></i> Supprimer
+                </a>
+
+                <form id="delete-user-form"
+                      method="post"
+                      action="{{ path('app_user_delete', {'id': user.id}) }}"
+                      style="display: none;">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

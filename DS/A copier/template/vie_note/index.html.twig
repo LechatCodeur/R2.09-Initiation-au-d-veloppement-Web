@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des VieNotes{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1 class="mb-4">Liste des tags</h1>
+
+    <table class="table table-bordered table-striped shadow-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Mis à jour le</th>    
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vie_note in vie_notes %}
+            <tr>
+                <td>{{ vie_note.id }}</td>
+                <td>{{ vie_note.updateAt ? vie_note.updateAt|date('Y-m-d H:i:s') : '—' }}</td>
+                <td>
+                    <a href="{{ path('app_vie_note_show', {'id': vie_note.id}) }}"
+                       class="btn btn-sm btn-outline-primary me-1"
+                       title="Afficher">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                    <a href="{{ path('app_vie_note_edit', {'id': vie_note.id}) }}"
+                       class="btn btn-sm btn-outline-warning"
+                       title="Modifier">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3" class="text-center text-muted">Aucun tag trouvé.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_vie_note_new') }}"
+       class="btn btn-success mt-3 px-4 py-2 fw-bold shadow-sm">
+        <i class="bi bi-plus-circle"></i> Créer un nouveau tag
+    </a>
+</div>
+{% endblock %}

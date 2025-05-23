@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche VieNote{% endblock %}
+
+{% block body %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+
+            <h1 class="text-dark mb-4">Fiche de la note de vie</h1>
+
+            <div class="card shadow-sm border-0">
+                <div class="card-body bg-light text-dark">
+                    <table class="table table-bordered mb-0">
+                        <tbody>
+                            <tr>
+                                <th scope="row">ID</th>
+                                <td>{{ vie_note.id }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Mis à jour le</th>
+                                <td>{{ vie_note.updateAt ? vie_note.updateAt|date('Y-m-d H:i:s') : 'Non renseigné' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="mt-4 d-flex flex-wrap gap-2 align-items-center">
+                <a href="{{ path('app_vie_note_index') }}" 
+                   class="btn btn-sm btn-secondary d-inline-flex align-items-center"
+                   style="padding: 0.3rem 0.75rem; font-size: 0.875rem;">
+                    <i class="bi bi-arrow-left-circle me-1"></i> Retour à la liste
+                </a>
+
+                <a href="{{ path('app_vie_note_edit', {'id': vie_note.id}) }}"
+                   class="btn btn-sm btn-primary d-inline-flex align-items-center"
+                   style="padding: 0.3rem 0.75rem; font-size: 0.875rem;">
+                    <i class="bi bi-pencil me-1"></i> Modifier
+                </a>
+
+                <a href="#"
+                   onclick="event.preventDefault(); if (confirm('Confirmer la suppression ?')) { document.getElementById('delete-vie-note-form').submit(); }"
+                   class="btn btn-sm btn-danger d-inline-flex align-items-center"
+                   style="padding: 0.3rem 0.75rem; font-size: 0.875rem;">
+                    <i class="bi bi-trash me-1"></i> Supprimer
+                </a>
+
+                <form id="delete-vie-note-form"
+                      method="post"
+                      action="{{ path('app_vie_note_delete', {'id': vie_note.id}) }}"
+                      style="display: none;">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ vie_note.id) }}">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

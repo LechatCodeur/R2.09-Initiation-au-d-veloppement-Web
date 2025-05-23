@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel État{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4 text-light">Créer un nouvel État</h1>
+
+        <div class="bg-dark p-4 rounded shadow-sm">
+            {{ include('etat/_form.html.twig', {'button_label': 'Créer'}) }}
+        </div>
+
+        <a href="{{ path('app_etat_index') }}" class="btn btn-outline-light mt-3">
+            <i class="bi bi-arrow-left"></i> Retour à la liste
+        </a>
+    </div>
+{% endblock %}

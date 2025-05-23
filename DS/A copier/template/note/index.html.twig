@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des notes{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1 class="mb-4">Liste des notes</h1>
+
+    <table class="table table-hover table-bordered align-middle shadow-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Créée le</th>
+                <th>Échéance</th>
+                <th>Priorité</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for note in notes %}
+            <tr>
+                <td>{{ note.id }}</td>
+                <td>{{ note.titre }}</td>
+                <td>{{ note.description|length > 100 ? note.description|slice(0, 100) ~ '…' : note.description }}</td>
+                <td>{{ note.createdAt ? note.createdAt|date('d/m/Y H:i') : '-' }}</td>
+                <td>{{ note.endAt ? note.endAt|date('d/m/Y H:i') : '-' }}</td>
+                <td>
+                    <span class="badge bg-secondary">{{ note.priorite }}</span>
+                </td>
+                <td>
+                    <a href="{{ path('app_note_show', {'id': note.id}) }}"
+                       class="btn btn-sm btn-outline-primary me-1" title="Afficher">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                    <a href="{{ path('app_note_edit', {'id': note.id}) }}"
+                       class="btn btn-sm btn-outline-warning" title="Modifier">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7" class="text-center text-muted">Aucune note trouvée.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_note_new') }}"
+       class="btn btn-success mt-3 px-4 py-2 fw-bold shadow-sm">
+        <i class="bi bi-plus-circle"></i> Créer une nouvelle note
+    </a>
+</div>
+{% endblock %}

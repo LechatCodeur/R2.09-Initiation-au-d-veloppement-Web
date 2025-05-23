@@ -27,7 +27,11 @@ Write-Host "DATABASE_URL configuré dans .env : $dbUrl"
 Write-Host "`n[Étape 3] Création de la base de données $dbName..."
 symfony console doctrine:database:create
 
-# 4. Création de l'entité User (réponses à entrer dans le terminal)
+# 4. Instalation du bundle sécurité
+Write-Host "`n[Étape 3bis] Installation du bundle de sécurité..."
+composer require symfony/security-bundle
+
+# 4.5. Création de l'entité User (réponses à entrer dans le terminal)
 Write-Host "`n[Étape 4] Création de l'entité User..."
 Write-Host "⚠️  Dans la console, réponds comme suit aux questions :"
 Write-Host "  - Nom de la classe : User"
@@ -81,6 +85,14 @@ symfony console make:migration
 symfony console doctrine:migrations:migrate
 
 # 12. Création des entités métier avec instructions détaillées
+
+# Modification de l'entité User
+Write-Host "`nModification de l'entité User"
+Write-Host "👉 Réponds :"
+Write-Host "  - nom : string (255)"
+Write-Host "  - prenom : string (255)"
+Read-Host "Appuie sur Entrée pour commencer User"
+symfony console make:entity User
 
 # Création de l'entité Note (sans relation)
 Write-Host "`nCréation de l'entité Note (sans relation)"
@@ -140,6 +152,10 @@ symfony console doctrine:migrations:migrate
 
 # 14. Génération des CRUD pour chaque entité
 Write-Host "`n[Étape 14] Génération automatique des interfaces CRUD pour chaque entité..."
+
+# CRUD pour User
+Write-Host "`n➡️ Génération du CRUD pour l'entité User..."
+symfony console make:crud User
 
 # CRUD pour Note
 Write-Host "`n➡️ Génération du CRUD pour l'entité Note..."
