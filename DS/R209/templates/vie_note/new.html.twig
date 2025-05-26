@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle version de note{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4 text-light">Créer une nouvelle version de note</h1>
+
+        <div class="bg-dark p-4 rounded shadow-sm">
+            {{ include('vie_note/_form.html.twig') }}
+        </div>
+
+        <a href="{{ path('app_vie_note_index') }}" class="btn btn-secondary mt-3">
+            <i class="bi bi-arrow-left"></i> Retour à la liste
+        </a>
+    </div>
+{% endblock %}

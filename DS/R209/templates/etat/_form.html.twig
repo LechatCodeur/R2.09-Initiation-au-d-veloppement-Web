@@ -1,0 +1,80 @@
+{{ form_start(form, {'attr': {'class': 'bg-light p-4 rounded shadow-sm'}}) }}
+
+{% for field in form %}
+    {% if field.vars.name != '_token' %}
+        <div class="mb-3">
+            {{ form_label(field, null, {'label_attr': {'class': 'form-label text-dark'}}) }}
+
+            {# Boolean (checkbox simple) #}
+            {% if field.vars.block_prefixes is defined and 'checkbox' in field.vars.block_prefixes and field.vars.name != 'roles' %}
+                <div class="form-check">
+                    {{ form_widget(field, {'attr': {'class': 'form-check-input'}}) }}
+                    {{ form_label(field, null, {'label_attr': {'class': 'form-check-label text-dark'}}) }}
+                </div>
+
+            {# Roles (checkbox multiples) #}
+            {% elseif field.vars.name == 'roles' %}
+                <div class="form-check-group">
+                    {% for choice in field %}
+                        <div class="form-check">
+                            {{ form_widget(choice, {'attr': {'class': 'form-check-input'}}) }}
+                            {{ form_label(choice, null, {'label_attr': {'class': 'form-check-label text-dark'}}) }}
+                        </div>
+                    {% endfor %}
+                </div>
+
+            {# Tags (checkbox multiples) #}
+            {% elseif field.vars.name == 'tags' %}
+                <div class="form-check-group">
+                    {% for choice in field %}
+                        <div class="form-check">
+                            {{ form_widget(choice, {'attr': {'class': 'form-check-input'}}) }}
+                            {{ form_label(choice, null, {'label_attr': {'class': 'form-check-label text-dark'}}) }}
+                        </div>
+                    {% endfor %}
+                </div>
+
+            {# Champ couleur (color picker) #}
+            {% elseif 'color' in field.vars.block_prefixes %}
+                {{ form_widget(field, {
+                    'attr': {
+                        'class': 'form-control-color',
+                        'style': 'width: 60px; height: 38px; padding: 4px; border: 1px solid #ccc; background: #fff;'
+                    }
+                }) }}
+
+            {# Champs date, datetime, birthday, etc. #}
+            {% elseif 'date' in field.vars.block_prefixes or 'datetime' in field.vars.block_prefixes %}
+                {{ form_widget(field, {
+                    'attr': {
+                        'class': 'form-control bg-white text-dark'
+                    }
+                }) }}
+
+            {# Listes déroulantes (select / choice) #}
+            {% elseif 'choice' in field.vars.block_prefixes %}
+                {{ form_widget(field, {
+                    'attr': {
+                        'class': 'form-select bg-white text-dark'
+                    }
+                }) }}
+
+            {# Autres champs texte classiques #}
+            {% else %}
+                {{ form_widget(field, {
+                    'attr': {
+                        'class': 'form-control bg-white text-dark'
+                    }
+                }) }}
+            {% endif %}
+
+            {{ form_errors(field) }}
+        </div>
+    {% endif %}
+{% endfor %}
+
+<button type="submit" class="btn btn-dark mt-3 px-4 py-2 fw-bold shadow-sm">
+    {{ button_label|default('Enregistrer') }}
+</button>
+
+{{ form_end(form) }}

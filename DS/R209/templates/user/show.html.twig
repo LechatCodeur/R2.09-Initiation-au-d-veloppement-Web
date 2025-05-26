@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche utilisateur{% endblock %}
+
+{% block body %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+
+            <h1 class="text-dark mb-4">Fiche de l'utilisateur</h1>
+
+            <div class="card shadow-sm border-0">
+                <div class="card-body bg-light text-dark">
+                    <table class="table table-bordered mb-0">
+                        <tbody>
+                            <tr>
+                                <th scope="row">ID</th>
+                                <td>{{ user.id }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Email</th>
+                                <td>{{ user.email }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Rôles</th>
+                                <td><code class="text-dark">{{ user.roles ? user.roles|json_encode : '' }}</code></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Mot de passe</th>
+                                <td><span class="text-muted">••••••••</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Vérifié</th>
+                                <td>
+                                    {% if user.isVerified %}
+                                        <span class="badge bg-success text-light">Oui</span>
+                                    {% else %}
+                                        <span class="badge bg-danger text-light">Non</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Nom</th>
+                                <td>{{ user.nom }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Prénom</th>
+                                <td>{{ user.prenom }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="mt-4 d-flex flex-wrap gap-2 align-items-center">
+                <a href="{{ path('app_user_index') }}" 
+                class="btn btn-sm btn-secondary d-inline-flex align-items-center" 
+                style="padding: 0.3rem 0.75rem; font-size: 0.875rem;">
+                    <i class="bi bi-arrow-left-circle me-1"></i> Retour
+                </a>
+
+                <a href="{{ path('app_user_edit', {'id': user.id}) }}" 
+                class="btn btn-sm btn-primary d-inline-flex align-items-center" 
+                style="padding: 0.3rem 0.75rem; font-size: 0.875rem;">
+                    <i class="bi bi-pencil me-1"></i> Modifier
+                </a>
+
+                <a href="#"
+                onclick="event.preventDefault(); if (confirm('Confirmer la suppression ?')) { document.getElementById('delete-user-form').submit(); }"
+                class="btn btn-sm btn-danger d-inline-flex align-items-center"
+                style="padding: 0.3rem 0.75rem; font-size: 0.875rem;">
+                    <i class="bi bi-trash me-1"></i> Supprimer
+                </a>
+
+                <form id="delete-user-form"
+                    method="post"
+                    action="{{ path('app_user_delete', {'id': user.id}) }}"
+                    style="display: none;">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

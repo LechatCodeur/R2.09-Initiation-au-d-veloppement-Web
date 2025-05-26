@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+<style>
+    .dashboard-wrapper {
+        margin: 2em auto;
+        max-width: 900px;
+        width: 95%;
+        font: 18px/1.6 "Segoe UI", sans-serif;
+    }
+    .dashboard-section {
+        margin-bottom: 40px;
+    }
+    .dashboard-section h2 {
+        color: #f8f9fa;
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        padding-bottom: 8px;
+    }
+    .dashboard-links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+    }
+    .dashboard-link {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(6px);
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        color: #f8f9fa;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 12px rgba(0,0,0,0.3);
+    }
+    .dashboard-link:hover {
+        background-color: rgba(13, 110, 253, 0.2);
+        transform: translateY(-3px);
+        box-shadow: 0 4px 20px rgba(13, 110, 253, 0.3);
+    }
+    .dashboard-link i {
+        font-size: 2rem;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .empty-placeholder {
+        color: #adb5bd;
+        font-size: 1rem;
+        padding-left: 10px;
+    }
+</style>
+
+<div class="dashboard-wrapper">
+    <h1>Bienvenue sur le Dashboard 👋</h1>
+
+    <div class="dashboard-section">
+        <h2>Gestion des bases de données ⚙️</h2>
+        <div class="dashboard-links">
+            <a href="/note" class="dashboard-link">
+                <i class="bi bi-stickies"></i>
+                Gérer les Notes
+            </a>
+            <a href="/tag" class="dashboard-link">
+                <i class="bi bi-tags"></i>
+                Gérer les Tags
+            </a>
+            <a href="/etat" class="dashboard-link">
+                <i class="bi bi-journal-bookmark"></i>
+                Gérer les États
+            </a>
+            <a href="/vie/note" class="dashboard-link">
+                <i class="bi bi-heart"></i>
+                VieNote
+            </a>
+        </div>
+    </div>
+
+    <div class="dashboard-section">
+        <h2>Gestion des utilisateurs 👥</h2>
+        <div class="dashboard-links">
+            <a href="/user" class="dashboard-link">
+                	<i class="bi bi-people"></i>
+                Gestion des utilisateurs
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,78 @@
+security:
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+    providers:
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            lazy: true
+            provider: app_user_provider
+            form_login:
+                login_path: app_login
+                check_path: app_login
+                enable_csrf: true
+            logout:
+                path: app_logout
+    access_control:
+        - { path: ^/dashboard, roles: [ROLE_USER,ROLE_ADMIN, ROLE_ROOT] }
+        - { path: ^/dashboard/note, roles: [ROLE_USER,ROLE_ADMIN, ROLE_ROOT] }
+
+            #parametre ETAT
+        - { path: ^/etat/new, roles: [ROLE_ADMIN, ROLE_ROOT] }
+        - { path: ^/etat/\d+/edit, roles: [ROLE_ADMIN, ROLE_ROOT] }
+        - { path: ^/etat/\d+$, roles: [ROLE_ADMIN, ROLE_ROOT], methods: [POST] }
+
+        - { path: ^/etat/\d+$, roles: [ROLE_USER,ROLE_ADMIN, ROLE_ROOT], methods: [GET] }
+        - { path: ^/etat$, roles: [ROLE_USER,ROLE_ADMIN, ROLE_ROOT], methods: [GET] }
+
+
+         #parametre NOTE
+        - { path: ^/note/new, roles: [ROLE_ADMIN, ROLE_ROOT] }
+        - { path: ^/note/\d+/edit, roles: [ROLE_ADMIN, ROLE_ROOT] }
+        - { path: ^/note/\d+$, roles: [ROLE_ADMIN, ROLE_ROOT], methods: [POST] }
+
+        - { path: ^/note/\d+$, roles: [ROLE_USER,ROLE_ADMIN, ROLE_ROOT], methods: [GET] }
+        - { path: ^/note$, roles: [ROLE_USER,ROLE_ADMIN, ROLE_ROOT], methods: [GET] }
+
+        #parametre tag
+        - { path: ^/tag/new, roles: [ROLE_ADMIN, ROLE_ROOT] }
+        - { path: ^/tag/\d+/edit, roles: [ROLE_ADMIN, ROLE_ROOT] }
+        - { path: ^/tag/\d+$, roles: [ROLE_ADMIN, ROLE_ROOT], methods: [POST] }
+
+        - { path: ^/tag/\d+$, roles: [ROLE_USER,ROLE_ADMIN, ROLE_ROOT], methods: [GET] }
+        - { path: ^/tag$, roles: [ROLE_USER,ROLE_ADMIN, ROLE_ROOT], methods: [GET] }
+
+        #parametre vienote
+        - { path: ^/vie/note/new, roles: [ROLE_ADMIN, ROLE_ROOT] }
+        - { path: ^/vie/note/\d+/edit, roles: [ROLE_ADMIN, ROLE_ROOT] }
+        - { path: ^/vie/note/\d+$, roles: [ROLE_ADMIN, ROLE_ROOT], methods: [POST] }
+
+        - { path: ^/vie/note/\d+$, roles: [ROLE_USER,ROLE_ADMIN, ROLE_ROOT], methods: [GET] }
+        - { path: ^/vie/note$, roles: [ROLE_USER,ROLE_ADMIN, ROLE_ROOT], methods: [GET] }
+
+
+        #parametre user
+        - { path: ^/user/new, roles: ROLE_ROOT }
+        - { path: ^/user/\d+/edit, roles: ROLE_ROOT }
+        - { path: ^/user/\d+$, roles: ROLE_ROOT, methods: [POST] }
+
+        - { path: ^/user/\d+$, roles: [ROLE_ADMIN, ROLE_ROOT] , methods: [GET] }
+        - { path: ^/user$, roles: [ROLE_ADMIN, ROLE_ROOT], methods: [GET] }
+
+
+        # - { path: ^/profile, roles: ROLE_USER }
+
+when@test:
+    security:
+        password_hashers:
+            Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
+                algorithm: auto
+                cost: 4 # Lowest possible value for bcrypt
+                time_cost: 3 # Lowest possible value for argon
+                memory_cost: 10 # Lowest possible value for argon
