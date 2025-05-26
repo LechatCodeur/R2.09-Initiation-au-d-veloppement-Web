@@ -15,12 +15,11 @@ class NoteForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+         
+
         $builder
             ->add('titre')
             ->add('description')
-            ->add('createdAt', null, [
-                'widget' => 'single_text',
-            ])
             ->add('endAt', null, [
                 'widget' => 'single_text',
             ])
@@ -40,6 +39,9 @@ class NoteForm extends AbstractType
                 'expanded' => true, 
             ]);
     }      
+
+    
+
 
 
     public function configureOptions(OptionsResolver $resolver): void
