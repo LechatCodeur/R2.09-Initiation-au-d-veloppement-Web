@@ -112,48 +112,78 @@ class __TwigTemplate_258633473462e72ce6a61d9f80b51393 extends Template
             ";
                     // line 27
                     yield "            ";
-                } elseif (CoreExtension::inFilter("color", CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["field"], "vars", [], "any", false, false, false, 27), "block_prefixes", [], "any", false, false, false, 27))) {
+                } elseif ((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["field"], "vars", [], "any", false, false, false, 27), "name", [], "any", false, false, false, 27) == "tags")) {
                     // line 28
+                    yield "                <div class=\"form-check-group\">
+                    ";
+                    // line 29
+                    $context['_parent'] = $context;
+                    $context['_seq'] = CoreExtension::ensureTraversable($context["field"]);
+                    foreach ($context['_seq'] as $context["_key"] => $context["choice"]) {
+                        // line 30
+                        yield "                        <div class=\"form-check\">
+                            ";
+                        // line 31
+                        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($context["choice"], 'widget', ["attr" => ["class" => "form-check-input"]]);
+                        yield "
+                            ";
+                        // line 32
+                        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($context["choice"], 'label', ["label_attr" => ["class" => "form-check-label text-dark"]]);
+                        yield "
+                        </div>
+                    ";
+                    }
+                    $_parent = $context['_parent'];
+                    unset($context['_seq'], $context['_key'], $context['choice'], $context['_parent']);
+                    $context = array_intersect_key($context, $_parent) + $_parent;
+                    // line 35
+                    yield "                </div>
+
+            ";
+                    // line 38
+                    yield "            ";
+                } elseif (CoreExtension::inFilter("color", CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["field"], "vars", [], "any", false, false, false, 38), "block_prefixes", [], "any", false, false, false, 38))) {
+                    // line 39
                     yield "                ";
                     yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($context["field"], 'widget', ["attr" => ["class" => "form-control-color", "style" => "width: 60px; height: 38px; padding: 4px; border: 1px solid #ccc; background: #fff;"]]);
-                    // line 33
+                    // line 44
                     yield "
 
             ";
-                    // line 36
+                    // line 47
                     yield "            ";
-                } elseif ((CoreExtension::inFilter("date", CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["field"], "vars", [], "any", false, false, false, 36), "block_prefixes", [], "any", false, false, false, 36)) || CoreExtension::inFilter("datetime", CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["field"], "vars", [], "any", false, false, false, 36), "block_prefixes", [], "any", false, false, false, 36)))) {
-                    // line 37
+                } elseif ((CoreExtension::inFilter("date", CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["field"], "vars", [], "any", false, false, false, 47), "block_prefixes", [], "any", false, false, false, 47)) || CoreExtension::inFilter("datetime", CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["field"], "vars", [], "any", false, false, false, 47), "block_prefixes", [], "any", false, false, false, 47)))) {
+                    // line 48
                     yield "                ";
                     yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($context["field"], 'widget', ["attr" => ["class" => "form-control bg-white text-dark"]]);
-                    // line 41
+                    // line 52
                     yield "
 
             ";
-                    // line 44
+                    // line 55
                     yield "            ";
-                } elseif (CoreExtension::inFilter("choice", CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["field"], "vars", [], "any", false, false, false, 44), "block_prefixes", [], "any", false, false, false, 44))) {
-                    // line 45
+                } elseif (CoreExtension::inFilter("choice", CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["field"], "vars", [], "any", false, false, false, 55), "block_prefixes", [], "any", false, false, false, 55))) {
+                    // line 56
                     yield "                ";
                     yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($context["field"], 'widget', ["attr" => ["class" => "form-select bg-white text-dark"]]);
-                    // line 49
+                    // line 60
                     yield "
 
             ";
-                    // line 52
+                    // line 63
                     yield "            ";
                 } else {
-                    // line 53
+                    // line 64
                     yield "                ";
                     yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($context["field"], 'widget', ["attr" => ["class" => "form-control bg-white text-dark"]]);
-                    // line 57
+                    // line 68
                     yield "
             ";
                 }
-                // line 59
+                // line 70
                 yield "
             ";
-                // line 60
+                // line 71
                 yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($context["field"], 'errors');
                 yield "
         </div>
@@ -163,18 +193,18 @@ class __TwigTemplate_258633473462e72ce6a61d9f80b51393 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['field'], $context['_parent']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 64
+        // line 75
         yield "
 <button type=\"submit\" class=\"btn btn-dark mt-3 px-4 py-2 fw-bold shadow-sm\">
     ";
-        // line 66
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((array_key_exists("button_label", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 66, $this->source); })()), "Enregistrer")) : ("Enregistrer")), "html", null, true);
+        // line 77
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((array_key_exists("button_label", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 77, $this->source); })()), "Enregistrer")) : ("Enregistrer")), "html", null, true);
         yield "
 </button>
 
 ";
-        // line 69
-        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 69, $this->source); })()), 'form_end');
+        // line 80
+        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 80, $this->source); })()), 'form_end');
         yield "
 ";
         
@@ -207,7 +237,7 @@ class __TwigTemplate_258633473462e72ce6a61d9f80b51393 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  177 => 69,  171 => 66,  167 => 64,  157 => 60,  154 => 59,  150 => 57,  147 => 53,  144 => 52,  140 => 49,  137 => 45,  134 => 44,  130 => 41,  127 => 37,  124 => 36,  120 => 33,  117 => 28,  114 => 27,  110 => 24,  101 => 21,  97 => 20,  94 => 19,  90 => 18,  87 => 17,  84 => 16,  78 => 12,  74 => 11,  71 => 10,  68 => 9,  63 => 6,  60 => 5,  57 => 4,  53 => 3,  48 => 1,);
+        return array (  207 => 80,  201 => 77,  197 => 75,  187 => 71,  184 => 70,  180 => 68,  177 => 64,  174 => 63,  170 => 60,  167 => 56,  164 => 55,  160 => 52,  157 => 48,  154 => 47,  150 => 44,  147 => 39,  144 => 38,  140 => 35,  131 => 32,  127 => 31,  124 => 30,  120 => 29,  117 => 28,  114 => 27,  110 => 24,  101 => 21,  97 => 20,  94 => 19,  90 => 18,  87 => 17,  84 => 16,  78 => 12,  74 => 11,  71 => 10,  68 => 9,  63 => 6,  60 => 5,  57 => 4,  53 => 3,  48 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -228,6 +258,17 @@ class __TwigTemplate_258633473462e72ce6a61d9f80b51393 extends Template
 
             {# Roles (checkbox multiples) #}
             {% elseif field.vars.name == 'roles' %}
+                <div class=\"form-check-group\">
+                    {% for choice in field %}
+                        <div class=\"form-check\">
+                            {{ form_widget(choice, {'attr': {'class': 'form-check-input'}}) }}
+                            {{ form_label(choice, null, {'label_attr': {'class': 'form-check-label text-dark'}}) }}
+                        </div>
+                    {% endfor %}
+                </div>
+
+            {# Tags (checkbox multiples) #}
+            {% elseif field.vars.name == 'tags' %}
                 <div class=\"form-check-group\">
                     {% for choice in field %}
                         <div class=\"form-check\">

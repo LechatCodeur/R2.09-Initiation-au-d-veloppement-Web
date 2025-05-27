@@ -79,12 +79,6 @@ class Etat
         return $this;
     }
 
-    public function __toString(): string
-{
-    return $this->nom; // ou nom de l'état
-}
-
-
     public function removeNote(Note $note): static
     {
         if ($this->notes->removeElement($note)) {

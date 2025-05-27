@@ -16,28 +16,32 @@ class NoteRepository extends ServiceEntityRepository
         parent::__construct($registry, Note::class);
     }
 
-//    /**
-//     * @return Note[] Returns an array of Note objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('n')
-//            ->andWhere('n.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('n.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function findAllFiltered($etatFilter, $tagFilter, $orderFilter)
+    {
+        $queryBuilder = $this->createQueryBuilder('n')
+            ->leftJoin('n.etat', 'e')
+            ->leftJoin('n.tags', 't')
+            ->addSelect('e', 't');
 
-//    public function findOneBySomeField($value): ?Note
-//    {
-//        return $this->createQueryBuilder('n')
-//            ->andWhere('n.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+        // Filtrer par état
+        if ($etatFilter) {
+            $queryBuilder->andWhere('e.nom = :etat')
+                         ->setParameter('etat', $etatFilter);
+        }
+
+        // Filtrer par tag
+        if ($tagFilter) {
+            $queryBuilder->andWhere('t.nom = :tag')
+                         ->setParameter('tag', $tagFilter);
+        }
+
+        // Trier par ordre
+        if ($orderFilter === 'asc') {
+            $queryBuilder->orderBy('n.titre', 'ASC');
+        } elseif ($orderFilter === 'desc') {
+            $queryBuilder->orderBy('n.titre', 'DESC');
+        }
+
+        return $queryBuilder->getQuery()->getResult();
+    }
 }

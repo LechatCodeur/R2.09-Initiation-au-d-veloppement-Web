@@ -34,13 +34,6 @@ class Tag
         return $this->id;
     }
 
-    public function __toString(): string
-    {
-        return $this->nom; // ou titre du tag
-    }
-
-
-
     public function getNom(): ?string
     {
         return $this->nom;

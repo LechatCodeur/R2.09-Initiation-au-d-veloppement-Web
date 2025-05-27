@@ -16,7 +16,7 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerALPcyF4\App_KernelDevDebugContainer([
     'container.build_hash' => 'ALPcyF4',
-    'container.build_id' => '2960ae1a',
-    'container.build_time' => 1747986644,
+    'container.build_id' => '9771d872',
+    'container.build_time' => 1748337102,
     'container.runtime_mode' => \in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true) ? 'web=0' : 'web=1',
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerALPcyF4');

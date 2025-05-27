@@ -113,38 +113,95 @@ class __TwigTemplate_427326bc001e1b77acc5e72809ad2fdc extends Template
         // line 11
         if ((($tmp = CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 11, $this->source); })()), "user", [], "any", false, false, false, 11)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) {
             // line 12
-            yield "            <div class=\"mb-3\">
-                You are logged in as ";
-            // line 13
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 13, $this->source); })()), "user", [], "any", false, false, false, 13), "userIdentifier", [], "any", false, false, false, 13), "html", null, true);
-            yield ", <a href=\"";
+            yield "            <!-- Card principale avec informations de l'utilisateur -->
+            <div class=\"card mb-4 shadow-sm\">
+                <div class=\"card-header bg-primary text-white\">
+                    <h3>Bienvenue, ";
+            // line 15
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 15, $this->source); })()), "user", [], "any", false, false, false, 15), "nom", [], "any", false, false, false, 15), "html", null, true);
+            yield " ";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 15, $this->source); })()), "user", [], "any", false, false, false, 15), "prenom", [], "any", false, false, false, 15), "html", null, true);
+            yield "</h3>
+                </div>
+                <div class=\"card-body\">
+
+                    <!-- Card pour les informations personnelles -->
+                    <div class=\"card mb-3 shadow-sm\">
+                        <div class=\"card-header bg-info text-white\">
+                            <h5>Informations personnelles</h5>
+                        </div>
+                        <div class=\"card-body\">
+                            <ul class=\"list-unstyled\">
+                                <li><strong>Nom:</strong> ";
+            // line 26
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 26, $this->source); })()), "user", [], "any", false, false, false, 26), "nom", [], "any", false, false, false, 26), "html", null, true);
+            yield "</li>
+                                <li><strong>Prénom:</strong> ";
+            // line 27
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 27, $this->source); })()), "user", [], "any", false, false, false, 27), "prenom", [], "any", false, false, false, 27), "html", null, true);
+            yield "</li>
+                                <li><strong>Email:</strong> ";
+            // line 28
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 28, $this->source); })()), "user", [], "any", false, false, false, 28), "email", [], "any", false, false, false, 28), "html", null, true);
+            yield "</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card pour les rôles -->
+                    <div class=\"card mb-3 shadow-sm\">
+                        <div class=\"card-header bg-warning text-dark\">
+                            <h5>Rôles</h5>
+                        </div>
+                        <div class=\"card-body\">
+                            <ul class=\"list-unstyled\">
+                                <li><strong>Rôle(s):</strong> ";
+            // line 40
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::join(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 40, $this->source); })()), "user", [], "any", false, false, false, 40), "roles", [], "any", false, false, false, 40), ", "), "html", null, true);
+            yield "</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card pour le bouton de déconnexion -->
+                    <div class=\"card shadow-sm\">
+                        <div class=\"card-body text-center\">
+                            <a href=\"";
+            // line 48
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
-            yield "\">Logout</a>
+            yield "\" class=\"btn btn-danger btn-lg\">Se déconnecter</a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         ";
-        }
-        // line 16
-        yield "
-        <h1 class=\"h3 mb-3 font-weight-normal\">Please sign in</h1>
-        <label for=\"username\">Email</label>
-        <input type=\"email\" value=\"";
-        // line 19
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 19, $this->source); })()), "html", null, true);
-        yield "\" name=\"_username\" id=\"username\" class=\"form-control\" autocomplete=\"email\" required autofocus>
-        <label for=\"password\">Password</label>
-        <input type=\"password\" name=\"_password\" id=\"password\" class=\"form-control\" autocomplete=\"current-password\" required>
-        <input type=\"hidden\" name=\"_csrf_token\" data-controller=\"csrf-protection\" value=\"";
-        // line 22
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("authenticate"), "html", null, true);
-        yield "\">
+        } else {
+            // line 55
+            yield "            <!-- Formulaire de connexion affiché seulement si l'utilisateur n'est pas connecté -->
+            <h1 class=\"h3 mb-3 font-weight-normal\">Veuillez vous connecter</h1>
+            <label for=\"username\">Email</label>
+            <input type=\"email\" value=\"";
+            // line 58
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 58, $this->source); })()), "html", null, true);
+            yield "\" name=\"_username\" id=\"username\" class=\"form-control\" autocomplete=\"email\" required autofocus>
+            <label for=\"password\">Mot de passe</label>
+            <input type=\"password\" name=\"_password\" id=\"password\" class=\"form-control\" autocomplete=\"current-password\" required>
+            <input type=\"hidden\" name=\"_csrf_token\" data-controller=\"csrf-protection\" value=\"";
+            // line 61
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("authenticate"), "html", null, true);
+            yield "\">
 
+            ";
+            // line 72
+            yield "
+            <button class=\"btn btn-lg btn-primary\" type=\"submit\">
+                Connexion
+            </button>
         ";
-        // line 33
-        yield "
-        <button class=\"btn btn-lg btn-primary\" type=\"submit\">
-            Sign in
-        </button>
-    </form>
+        }
+        // line 77
+        yield "    </form>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -176,7 +233,7 @@ class __TwigTemplate_427326bc001e1b77acc5e72809ad2fdc extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  143 => 33,  138 => 22,  132 => 19,  127 => 16,  119 => 13,  116 => 12,  114 => 11,  111 => 10,  105 => 8,  103 => 7,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  204 => 77,  197 => 72,  192 => 61,  186 => 58,  181 => 55,  171 => 48,  160 => 40,  145 => 28,  141 => 27,  137 => 26,  121 => 15,  116 => 12,  114 => 11,  111 => 10,  105 => 8,  103 => 7,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -192,31 +249,71 @@ class __TwigTemplate_427326bc001e1b77acc5e72809ad2fdc extends Template
         {% endif %}
 
         {% if app.user %}
-            <div class=\"mb-3\">
-                You are logged in as {{ app.user.userIdentifier }}, <a href=\"{{ path('app_logout') }}\">Logout</a>
+            <!-- Card principale avec informations de l'utilisateur -->
+            <div class=\"card mb-4 shadow-sm\">
+                <div class=\"card-header bg-primary text-white\">
+                    <h3>Bienvenue, {{ app.user.nom }} {{ app.user.prenom }}</h3>
+                </div>
+                <div class=\"card-body\">
+
+                    <!-- Card pour les informations personnelles -->
+                    <div class=\"card mb-3 shadow-sm\">
+                        <div class=\"card-header bg-info text-white\">
+                            <h5>Informations personnelles</h5>
+                        </div>
+                        <div class=\"card-body\">
+                            <ul class=\"list-unstyled\">
+                                <li><strong>Nom:</strong> {{ app.user.nom }}</li>
+                                <li><strong>Prénom:</strong> {{ app.user.prenom }}</li>
+                                <li><strong>Email:</strong> {{ app.user.email }}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card pour les rôles -->
+                    <div class=\"card mb-3 shadow-sm\">
+                        <div class=\"card-header bg-warning text-dark\">
+                            <h5>Rôles</h5>
+                        </div>
+                        <div class=\"card-body\">
+                            <ul class=\"list-unstyled\">
+                                <li><strong>Rôle(s):</strong> {{ app.user.roles | join(', ') }}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card pour le bouton de déconnexion -->
+                    <div class=\"card shadow-sm\">
+                        <div class=\"card-body text-center\">
+                            <a href=\"{{ path('app_logout') }}\" class=\"btn btn-danger btn-lg\">Se déconnecter</a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+        {% else %}
+            <!-- Formulaire de connexion affiché seulement si l'utilisateur n'est pas connecté -->
+            <h1 class=\"h3 mb-3 font-weight-normal\">Veuillez vous connecter</h1>
+            <label for=\"username\">Email</label>
+            <input type=\"email\" value=\"{{ last_username }}\" name=\"_username\" id=\"username\" class=\"form-control\" autocomplete=\"email\" required autofocus>
+            <label for=\"password\">Mot de passe</label>
+            <input type=\"password\" name=\"_password\" id=\"password\" class=\"form-control\" autocomplete=\"current-password\" required>
+            <input type=\"hidden\" name=\"_csrf_token\" data-controller=\"csrf-protection\" value=\"{{ csrf_token('authenticate') }}\">
+
+            {#
+                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                See https://symfony.com/doc/current/security/remember_me.html
+
+                <div class=\"checkbox mb-3\">
+                    <input type=\"checkbox\" name=\"_remember_me\" id=\"_remember_me\">
+                    <label for=\"_remember_me\">Se souvenir de moi</label>
+                </div>
+            #}
+
+            <button class=\"btn btn-lg btn-primary\" type=\"submit\">
+                Connexion
+            </button>
         {% endif %}
-
-        <h1 class=\"h3 mb-3 font-weight-normal\">Please sign in</h1>
-        <label for=\"username\">Email</label>
-        <input type=\"email\" value=\"{{ last_username }}\" name=\"_username\" id=\"username\" class=\"form-control\" autocomplete=\"email\" required autofocus>
-        <label for=\"password\">Password</label>
-        <input type=\"password\" name=\"_password\" id=\"password\" class=\"form-control\" autocomplete=\"current-password\" required>
-        <input type=\"hidden\" name=\"_csrf_token\" data-controller=\"csrf-protection\" value=\"{{ csrf_token('authenticate') }}\">
-
-        {#
-            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-            See https://symfony.com/doc/current/security/remember_me.html
-
-            <div class=\"checkbox mb-3\">
-                <input type=\"checkbox\" name=\"_remember_me\" id=\"_remember_me\">
-                <label for=\"_remember_me\">Remember me</label>
-            </div>
-        #}
-
-        <button class=\"btn btn-lg btn-primary\" type=\"submit\">
-            Sign in
-        </button>
     </form>
 {% endblock %}
 ", "security/login.html.twig", "C:\\Users\\Utilisateur\\Desktop\\Cours\\RT1_S2_2024_2025\\Cours_TD_TP\\R2.09 Initiation au développement Web\\DS\\R209\\templates\\security\\login.html.twig");

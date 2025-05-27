@@ -259,77 +259,126 @@ class __TwigTemplate_0e1707a57575f4cb17aced7e3fa9b64c extends Template
 <body>
     <canvas id=\"starfield\"></canvas>
 
-    <nav class=\"navbar navbar-expand-lg navbar-dark\">
-        <div class=\"container-fluid\">
-            <a class=\"navbar-brand\" href=\"";
+            <nav class=\"navbar navbar-expand-lg navbar-dark\">
+            <div class=\"container-fluid\">
+                <a class=\"navbar-brand\" href=\"";
         // line 207
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_dashboard");
         yield "\">
-                <i class=\"bi bi-journal-text\"></i> 📝 R209
-            </a>
-            <button
-                class=\"navbar-toggler\"
-                type=\"button\"
-                data-bs-toggle=\"collapse\"
-                data-bs-target=\"#navbarNav\"
-                aria-controls=\"navbarNav\"
-                aria-expanded=\"false\"
-                aria-label=\"Toggle navigation\"
-            >
-                <span class=\"navbar-toggler-icon\"></span>
-            </button>
-            <div class=\"collapse navbar-collapse\" id=\"navbarNav\">
-                <ul class=\"navbar-nav ms-auto\">
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"";
-        // line 224
+                    <i class=\"bi bi-journal-text\"></i> 📝 R209
+                </a>
+                <button
+                    class=\"navbar-toggler\"
+                    type=\"button\"
+                    data-bs-toggle=\"collapse\"
+                    data-bs-target=\"#navbarNav\"
+                    aria-controls=\"navbarNav\"
+                    aria-expanded=\"false\"
+                    aria-label=\"Toggle navigation\"
+                >
+                    <span class=\"navbar-toggler-icon\"></span>
+                </button>
+                <div class=\"collapse navbar-collapse\" id=\"navbarNav\">
+                    <ul class=\"navbar-nav ms-auto\">
+
+                        <li class=\"nav-item\">
+                            <a class=\"nav-link\" href=\"/dashboard/note\">
+                                <i class=\"bi bi-file-earmark-text\"></i> Notes
+                            </a>
+                        </li>
+                        <!-- Menu Administration -->
+                        <li class=\"nav-item dropdown\">
+                            <a
+                                class=\"nav-link dropdown-toggle\"
+                                href=\"#\"
+                                id=\"adminDropdown\"
+                                role=\"button\"
+                                data-bs-toggle=\"dropdown\"
+                                aria-expanded=\"false\"
+                            >
+                                <i class=\"bi bi-gear-fill\"></i> Administration
+                            </a>
+                            <ul class=\"dropdown-menu dropdown-menu-end\" aria-labelledby=\"adminDropdown\">
+                                <li>
+                                    <a class=\"dropdown-item\" href=\"";
+        // line 243
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_dashboard");
         yield "\">
-                            <i class=\"bi bi-speedometer2\"></i> Dashboard
-                        </a>
-                    </li>
-                    <li class=\"nav-item dropdown\">
-                        <a
-                            class=\"nav-link dropdown-toggle\"
-                            href=\"#\"
-                            id=\"connexionDropdown\"
-                            role=\"button\"
-                            data-bs-toggle=\"dropdown\"
-                            aria-expanded=\"false\"
-                        >
-                            <i class=\"bi bi-box-arrow-in-right\"></i> Connexion
-                        </a>
-                        <ul class=\"dropdown-menu dropdown-menu-end\" aria-labelledby=\"connexionDropdown\">
-                            <li>
-                                <a class=\"dropdown-item\" href=\"";
-        // line 241
+                                        <i class=\"bi bi-speedometer2\"></i> Dashboard
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class=\"dropdown-item\" href=\"/note\">
+                                        <i class=\"bi bi-file-earmark-text\"></i> Notes
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class=\"dropdown-item\" href=\"/tag\">
+                                        <i class=\"bi bi-tags\"></i> Tags
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class=\"dropdown-item\" href=\"/etat\">
+                                        <i class=\"bi bi-check2-square\"></i> États
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class=\"dropdown-item\" href=\"/vie/note\">
+                                        <i class=\"bi bi-eye\"></i> Vue Notes
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class=\"dropdown-item\" href=\"/user\">
+                                        <i class=\"bi bi-people\"></i> Utilisateurs
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Menu Connexion -->
+                        <li class=\"nav-item dropdown\">
+                            <a
+                                class=\"nav-link dropdown-toggle\"
+                                href=\"#\"
+                                id=\"connexionDropdown\"
+                                role=\"button\"
+                                data-bs-toggle=\"dropdown\"
+                                aria-expanded=\"false\"
+                            >
+                                <i class=\"bi bi-box-arrow-in-right\"></i> Connexion
+                            </a>
+                            <ul class=\"dropdown-menu dropdown-menu-end\" aria-labelledby=\"connexionDropdown\">
+                                <li>
+                                    <a class=\"dropdown-item\" href=\"";
+        // line 289
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
         yield "\">
-                                    <i class=\"bi bi-person-circle\"></i> Login
-                                </a>
-                            </li>
-                            <li>
-                                <a class=\"dropdown-item\" href=\"";
-        // line 246
+                                        <i class=\"bi bi-person-circle\"></i> Login
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class=\"dropdown-item\" href=\"";
+        // line 294
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
         yield "\">
-                                    <i class=\"bi bi-pencil-square\"></i> Register
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                                        <i class=\"bi bi-pencil-square\"></i> Register
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+
 
     <div class=\"container\">
         ";
-        // line 258
+        // line 307
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 258, $this->source); })()), "flashes", ["success"], "method", false, false, false, 258));
+        $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 307, $this->source); })()), "flashes", ["success"], "method", false, false, false, 307));
         foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-            // line 259
+            // line 308
             yield "            <div class=\"alert alert-success\">";
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["message"], "html", null, true);
             yield "</div>
@@ -338,17 +387,17 @@ class __TwigTemplate_0e1707a57575f4cb17aced7e3fa9b64c extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['message'], $context['_parent']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 261
+        // line 310
         yield "
         ";
-        // line 262
+        // line 311
         yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
-        // line 263
+        // line 312
         yield "    </div>
 
     <footer>
         © ";
-        // line 266
+        // line 315
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate("now", "Y"), "html", null, true);
         yield " R209 - Sanchez Durante Hugo 🚀
     </footer>
@@ -424,9 +473,9 @@ class __TwigTemplate_0e1707a57575f4cb17aced7e3fa9b64c extends Template
     </script>
 
     ";
-        // line 339
+        // line 388
         yield from $this->unwrap()->yieldBlock('javascripts', $context, $blocks);
-        // line 340
+        // line 389
         yield "</body>
 </html>
 ";
@@ -484,7 +533,7 @@ class __TwigTemplate_0e1707a57575f4cb17aced7e3fa9b64c extends Template
         yield from [];
     }
 
-    // line 262
+    // line 311
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -506,7 +555,7 @@ class __TwigTemplate_0e1707a57575f4cb17aced7e3fa9b64c extends Template
         yield from [];
     }
 
-    // line 339
+    // line 388
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -549,7 +598,7 @@ class __TwigTemplate_0e1707a57575f4cb17aced7e3fa9b64c extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  510 => 339,  488 => 262,  466 => 200,  443 => 5,  430 => 340,  428 => 339,  352 => 266,  347 => 263,  345 => 262,  342 => 261,  333 => 259,  329 => 258,  314 => 246,  306 => 241,  286 => 224,  266 => 207,  258 => 201,  256 => 200,  58 => 5,  52 => 1,);
+        return array (  559 => 388,  537 => 311,  515 => 200,  492 => 5,  479 => 389,  477 => 388,  401 => 315,  396 => 312,  394 => 311,  391 => 310,  382 => 308,  378 => 307,  362 => 294,  354 => 289,  305 => 243,  266 => 207,  258 => 201,  256 => 200,  58 => 5,  52 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -758,57 +807,106 @@ class __TwigTemplate_0e1707a57575f4cb17aced7e3fa9b64c extends Template
 <body>
     <canvas id=\"starfield\"></canvas>
 
-    <nav class=\"navbar navbar-expand-lg navbar-dark\">
-        <div class=\"container-fluid\">
-            <a class=\"navbar-brand\" href=\"{{ path('app_dashboard') }}\">
-                <i class=\"bi bi-journal-text\"></i> 📝 R209
-            </a>
-            <button
-                class=\"navbar-toggler\"
-                type=\"button\"
-                data-bs-toggle=\"collapse\"
-                data-bs-target=\"#navbarNav\"
-                aria-controls=\"navbarNav\"
-                aria-expanded=\"false\"
-                aria-label=\"Toggle navigation\"
-            >
-                <span class=\"navbar-toggler-icon\"></span>
-            </button>
-            <div class=\"collapse navbar-collapse\" id=\"navbarNav\">
-                <ul class=\"navbar-nav ms-auto\">
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"{{ path('app_dashboard') }}\">
-                            <i class=\"bi bi-speedometer2\"></i> Dashboard
-                        </a>
-                    </li>
-                    <li class=\"nav-item dropdown\">
-                        <a
-                            class=\"nav-link dropdown-toggle\"
-                            href=\"#\"
-                            id=\"connexionDropdown\"
-                            role=\"button\"
-                            data-bs-toggle=\"dropdown\"
-                            aria-expanded=\"false\"
-                        >
-                            <i class=\"bi bi-box-arrow-in-right\"></i> Connexion
-                        </a>
-                        <ul class=\"dropdown-menu dropdown-menu-end\" aria-labelledby=\"connexionDropdown\">
-                            <li>
-                                <a class=\"dropdown-item\" href=\"{{ path('app_login') }}\">
-                                    <i class=\"bi bi-person-circle\"></i> Login
-                                </a>
-                            </li>
-                            <li>
-                                <a class=\"dropdown-item\" href=\"{{ path('app_register') }}\">
-                                    <i class=\"bi bi-pencil-square\"></i> Register
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+            <nav class=\"navbar navbar-expand-lg navbar-dark\">
+            <div class=\"container-fluid\">
+                <a class=\"navbar-brand\" href=\"{{ path('app_dashboard') }}\">
+                    <i class=\"bi bi-journal-text\"></i> 📝 R209
+                </a>
+                <button
+                    class=\"navbar-toggler\"
+                    type=\"button\"
+                    data-bs-toggle=\"collapse\"
+                    data-bs-target=\"#navbarNav\"
+                    aria-controls=\"navbarNav\"
+                    aria-expanded=\"false\"
+                    aria-label=\"Toggle navigation\"
+                >
+                    <span class=\"navbar-toggler-icon\"></span>
+                </button>
+                <div class=\"collapse navbar-collapse\" id=\"navbarNav\">
+                    <ul class=\"navbar-nav ms-auto\">
+
+                        <li class=\"nav-item\">
+                            <a class=\"nav-link\" href=\"/dashboard/note\">
+                                <i class=\"bi bi-file-earmark-text\"></i> Notes
+                            </a>
+                        </li>
+                        <!-- Menu Administration -->
+                        <li class=\"nav-item dropdown\">
+                            <a
+                                class=\"nav-link dropdown-toggle\"
+                                href=\"#\"
+                                id=\"adminDropdown\"
+                                role=\"button\"
+                                data-bs-toggle=\"dropdown\"
+                                aria-expanded=\"false\"
+                            >
+                                <i class=\"bi bi-gear-fill\"></i> Administration
+                            </a>
+                            <ul class=\"dropdown-menu dropdown-menu-end\" aria-labelledby=\"adminDropdown\">
+                                <li>
+                                    <a class=\"dropdown-item\" href=\"{{ path('app_dashboard') }}\">
+                                        <i class=\"bi bi-speedometer2\"></i> Dashboard
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class=\"dropdown-item\" href=\"/note\">
+                                        <i class=\"bi bi-file-earmark-text\"></i> Notes
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class=\"dropdown-item\" href=\"/tag\">
+                                        <i class=\"bi bi-tags\"></i> Tags
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class=\"dropdown-item\" href=\"/etat\">
+                                        <i class=\"bi bi-check2-square\"></i> États
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class=\"dropdown-item\" href=\"/vie/note\">
+                                        <i class=\"bi bi-eye\"></i> Vue Notes
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class=\"dropdown-item\" href=\"/user\">
+                                        <i class=\"bi bi-people\"></i> Utilisateurs
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Menu Connexion -->
+                        <li class=\"nav-item dropdown\">
+                            <a
+                                class=\"nav-link dropdown-toggle\"
+                                href=\"#\"
+                                id=\"connexionDropdown\"
+                                role=\"button\"
+                                data-bs-toggle=\"dropdown\"
+                                aria-expanded=\"false\"
+                            >
+                                <i class=\"bi bi-box-arrow-in-right\"></i> Connexion
+                            </a>
+                            <ul class=\"dropdown-menu dropdown-menu-end\" aria-labelledby=\"connexionDropdown\">
+                                <li>
+                                    <a class=\"dropdown-item\" href=\"{{ path('app_login') }}\">
+                                        <i class=\"bi bi-person-circle\"></i> Login
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class=\"dropdown-item\" href=\"{{ path('app_register') }}\">
+                                        <i class=\"bi bi-pencil-square\"></i> Register
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+
 
     <div class=\"container\">
         {% for message in app.flashes('success') %}
